@@ -1,0 +1,15 @@
+#!/bin/bash
+
+for file in notes/*.md
+do
+    if [ -f "$file" ]; then
+        title=$(head -n 1 "$file")
+
+        if [ -z "$title" ]; then
+            echo "ERROR: Empty title in $file"
+            exit 1
+        fi
+    fi
+done
+
+exit 0
